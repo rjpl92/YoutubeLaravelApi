@@ -14,10 +14,10 @@ class AuthService {
 	public function __construct() {
 		$this->client = new \Google_Client;
 
-		$this->client->setClientId(\Config::get('google-config.client_id'));
-		$this->client->setClientSecret(\Config::get('google-config.client_secret'));
-		$this->client->setDeveloperKey(\Config::get('google-config.api_key'));
-		$this->client->setRedirectUri(\Config::get('google-config.redirect_url'));
+		$this->client->setClientId(\Config::get('app.client_id_youtube'));
+		$this->client->setClientSecret(\Config::get('app.client_secret_youtube'));
+		$this->client->setDeveloperKey(\Config::get('app.api_key_youtube'));
+		$this->client->setRedirectUri(\Config::get('app.redirect_url_youtube'));
 
 		$this->client->setScopes([
 			'https://www.googleapis.com/auth/youtube',
@@ -25,7 +25,7 @@ class AuthService {
 
 		$this->client->setAccessType('offline');
 		$this->client->setPrompt('consent');
-		$this->ytLanguage = \Config::get('google.yt_language');
+		$this->ytLanguage = \Config::get('app.yt_language_youtube');
 
 	}
 
